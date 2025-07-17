@@ -1,0 +1,213 @@
+       :root {
+  --main-bg: #eaeff3;
+  --box-bg: #fff;
+  --box-shadow: 0 7px 30px 0 rgba(46, 90, 212, 0.09);
+  --primary-green: #00993d;
+  --input-bg: #f3f5f9;
+  --input-border: #e2e6ee;
+  --input-focus: #4568d6;
+  --font: 'Roboto', Arial, sans-serif;
+  --accent: #4568d6;
+  --forgot: #2239c3;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--main-bg);
+  font-family: var(--font);
+}
+
+.login-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  width: 100vw;
+  max-width: 420px;
+  margin: 3vh auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.login-box {
+  padding: 36px 36px 18px 36px;
+  background: var(--box-bg);
+  border-radius: 16px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.header-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 75px;
+  margin: 0 auto 14px auto;
+  background: url('https://portal.jkuat.ac.ke/static/media/logo.48a6a85c.svg') center center/70px 70px no-repeat;
+  width: 75px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 8px 0 rgb(44 62 80 / 12%);
+}
+
+
+.header-logo img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%; /* Makes it a circle */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 3px solid #fff; /* Optional: nice white border */
+}
+
+
+/* Headings and subtitles */
+.login-box h2 {
+  margin: 0 0 4px 0;
+  text-align: center;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #222b45;
+  letter-spacing: -.03rem;
+}
+
+.sub-text {
+  margin: 0 0 18px 0;
+  text-align: center;
+  color: #5a6376;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Form Inputs */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  font-size: .96rem;
+  font-weight: 500;
+  color: #3d4151;
+  margin-bottom: 7px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+  padding: 13px 14px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 7px;
+  font-size: .99rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input-group input:focus {
+  border-color: var(--input-focus);
+}
+
+.options-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: .97rem;
+  align-items: center;
+}
+
+.options-row .remember-text {
+  color: #646574;
+  font-size: .97rem;
+  margin-left: 2px;
+}
+
+.options-row input[type="checkbox"] {
+  accent-color: var(--primary-green);
+  margin-right: 2px;
+}
+
+.forgot-link {
+  color: var(--forgot);
+  text-decoration: none;
+  font-size: .97rem;
+  transition: text-decoration 0.2s;
+}
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.sign-in-btn {
+  margin-top: 8px;
+  background: var(--primary-green);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 13px 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 10px 0 rgb(46 90 212 / 8%);
+  transition: background 0.18s;
+  width: 95%; /* Makes button full width of its container */
+}
+.sign-in-btn:hover, .sign-in-btn:focus {
+  background: #01732c;
+  outline: none;
+}
+
+
+
+
+.signup-link {
+  text-align: center;
+  margin: 18px 0 10px;
+  color: #6e7791;
+  font-size: .98rem;
+}
+.signup-link a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 3px;
+  transition: text-decoration 0.2s;
+}
+.signup-link a:hover { text-decoration: underline; }
+
+footer {
+  display: block;
+  margin: 20px auto 8px auto;
+  text-align: center;
+  color: #555;
+  font-size: 0.97rem;
+  font-family: 'Roboto', Arial, sans-serif;
+  opacity: 0.92;
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 20px 7vw 9px 7vw;
+  }
+  .header-logo {
+    width: 55px;
+    height: 55px;
+    background-size: 55px 55px;
+  }
+}
+
+/* Remove blue autofill in Chrome */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--input-bg) inset !important;
+  box-shadow: 0 0 0 1000px var(--input-bg) inset !important;
+  -webkit-text-fill-color: #363a45 !important;
+}
