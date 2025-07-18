@@ -1,54 +1,51 @@
 const express = require('express');
-const mysql = require('mysql');
-const bodyParser = require('body-parser');
 const path = require('path');
-
+const mysql = require('mysql2'); // ✅ ADD THIS
 const app = express();
-const port = 3000;
 
-// Middleware
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
-// MySQL Connection
+// ✅ CONNECT TO YOUR MYSQL DATABASE
 const db = mysql.createConnection({
   host: 'localhost',
-  user: 'root',       // change if your MySQL user is different
-  password: 'Anisa@2020*',       // change if your MySQL password is not empty
-  database: 'loginDB'
+  user: 'root',
+  password: 'Anisa@2020*',
+  database: 'logindb'
 });
+
 
 db.connect(err => {
   if (err) {
-    console.error('❌ MySQL connection failed:', err);
+    console.error('Error connecting to MySQL:', err);
     return;
   }
-  console.log('✅ Connected to MySQL Database');
+  console.log('Connected to MySQL database!');
 });
 
-// Handle Login
+// ✅ LOGIN ROUTE USING MYSQL
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
 
-  const query = 'SELECT * FROM users WHERE username = ? AND password = ?';
-  db.query(query, [username, password], (err, results) => {
+  // Search for user in the database
+  const sql = 'SELECT * FROM users WHERE username = ? AND password = ?';
+  db.query(sql, [username, password], (err, results) => {
     if (err) {
-      console.error('❌ Error during query:', err);
-      return res.status(500).send('Internal server error');
+      console.error('Database error:', err);
+      res.send('Something went wrong');
+      return;
     }
 
     if (results.length > 0) {
-      res.send(`🎉 Welcome, ${username}! Login successful.`);
+      // Found a matching user
+      res.sendFile(path.join(__dirname, 'public', 'home.html'));
     } else {
-      res.send('❌ Incorrect username or password.');
+      // User not found
+      res.send('<h2>Wrong username or password</h2><a href="/login.html">Try again</a>');
     }
   });
 });
 
-app.listen(port, () => {
-  console.log(`🚀 Server running at http://localhost:${port}`);
+app.listen(3000, () => {
+  console.log('Server running at http://localhost:3000/login.html');
 });
-
-
-
-

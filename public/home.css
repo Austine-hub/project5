@@ -1,0 +1,320 @@
+/* Reset some default styles */
+body, h1, h2, p, ul, li, form {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8f9fa;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Container stays centered and fluid */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Header styling */
+header {
+  background: #002147;
+  color: #fff;
+  padding: 20px 0;
+}
+
+header h1 {
+  margin-bottom: 10px;
+  font-size: 3.2em;
+}
+
+/* Topbar for logo and nav */
+.topbar {
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 4px solid #ffd700;
+  padding: 12px 32px;
+}
+
+.kra-logo {
+  width: 120px;
+  height: 100px;
+  border-radius: 70%;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+/* Navigation links */
+.social-media,nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 0;
+}
+
+.social-media,nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.social-media,nav a:hover {
+  color: #ffb300;
+}
+
+/* Main content sections */
+main section {
+  background: #fff;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+h2 {
+  color: #002147;
+  margin-bottom: 10px;
+}
+
+/* Responsive Grid for bottom-row */
+.bottom-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1rem;
+  margin: 1.2em 0;
+}
+
+.bottom-box {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  text-align: center;
+  padding: 1em;
+  background: #e4e9ee;
+  min-width: 0;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+.bottom-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+
+
+#footer1 {
+  background: rgba(228, 233, 238, 0.3); /* light transparent bluish-gray */
+  padding: 20px;
+  border-radius: 10px;;
+  border: none !important;
+  outline: none;
+  padding:15px 15px 15px 15px;
+
+}
+
+
+
+/* Video Section */
+.video-section {
+  position: relative;
+  width: 91%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.video-section video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  bottom: 50%;
+  right: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Video Overlay */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(0,0,0,0.3);
+  font-size: 1rem;
+  line-height: 1.3;
+  font-weight: 600;
+  font-family: 'Segoe UI', sans-serif;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 1em;
+}
+
+/* Lists inside sections */
+ul {
+  margin-left: 20px;
+}
+
+/* Form styling */
+form {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Email input */
+input[type="email"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 250px;
+  flex: 1 1 auto;
+  min-width: 200px;
+}
+
+/* Buttons */
+button {
+  padding: 8px 16px;
+  background: #002147;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #ffb300;
+  color: #002147;
+}
+
+/* Footer */
+footer {
+  background: #002147;
+  color: #fff;
+  text-align: center;
+  padding: 25px;
+  margin-top: 30px;
+  font-size: 1em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  header h1 {
+    font-size: 2.4em;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2em;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .social-media,nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .video-section {
+    height: 300px;
+  }
+
+  .video-overlay {
+    font-size: 0.9rem;
+    padding: 0.5em;
+  }
+
+  main section {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.6em;
+  }
+
+  .social-media,nav, ul {
+    gap: 5px;
+  }
+
+  form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  input[type="email"],
+  button {
+    width: 100%;
+  }
+
+  .video-section {
+    height: 250px;
+  }
+
+  .video-overlay {
+    font-size: 0.85rem;
+  }
+
+  .bottom-box {
+    height: auto;
+    padding: 1em;
+  }
+}
+
+/* Company Overview (optional) */
+.company-overview {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.company-overview > * {
+  flex: 1 1 300px;
+  min-width: 250px;
+}
